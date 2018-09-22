@@ -185,7 +185,7 @@ Set the following options in ``/var/www/virtual/isabell/mailman/Mailman/mm_cfg.p
  SMTP_PASSWD = 'betterPWthanThis'
 
  # tell mailman to use HTTPS
- DEFAULT_URL_PATTERN = 'https://%s/mailman'
+ DEFAULT_URL_PATTERN = 'https://%s/mailman/'
 
 You can look up the meaning  and default value of each variable in the file ``Defaults.py`` in the same folder.
 
