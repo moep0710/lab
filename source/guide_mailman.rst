@@ -251,6 +251,31 @@ If you don't want a pesky HTTP 403 (Forbidden) error when someone calls ``https:
  RewriteBase /
  RewriteCond %{REQUEST_URI} ^\/mailman\/$
  RewriteRule .* mailman/listinfo [R=301,L]
+ 
+Custom Domain
+======================
+If you want to use your tld-Domain, you have to change your mm_cfg.py-File like this
+
+::
+
+ # configure default domains to use for the webinterface and e-mail addresses
+ DEFAULT_URL_HOST = 'yourdomain.tld'
+ DEFAULT_EMAIL_HOST = 'yourdomain.tld'
+ VIRTUAL_HOSTS = { 'yourdomain.tld': 'yourdomain.tld' }
+
+ # configure mailmans mailbox
+ SMTP_AUTH = True
+ SMTP_USE_TLS = True
+ SMTPHOST = 'stardust.uberspace.de'
+ SMTPPORT = '587'
+
+ SMTP_USER = 'mailmanbox@yourdomain.tld'
+ SMTP_PASSWD = 'betterPWthanThis'
+
+ # tell mailman to use HTTPS
+ DEFAULT_URL_PATTERN = 'https://%s/mailman'
+
+
 
 All done! Enjoy using your new list manager available at ``https://isabell.uber.space/mailman``!
 
